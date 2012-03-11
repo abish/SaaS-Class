@@ -10,21 +10,18 @@ class MoviesController < ApplicationController
     @movies = Movie.all
 	if params[:sort]
 		sort = params[:sort]
-		@movies = Movie.order(params[:sort])
+		@movies = Movie.order(sort)
+		if  "release_date asc" == sort then
+			@crelease = nil; @ctitle = "hilite"
+		elsif	"title asc" == sort then
+			@crelease = "hilite"; @ctitle = nil
+		end
 	end
   end
 
   def new
     # default: render 'new' template
   end
-
-#  def sort
-#	@movies = Movie.all
-#	sort = params[:sort]
-#	@movies = @movies.order(sort)
-#    flash[:notice] = "#{@movie.title} was successfully created."
-#   redirect_to movies_path
-#  end
   
   def create
     @movie = Movie.create!(params[:movie])
