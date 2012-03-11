@@ -4,7 +4,7 @@
 %table#movies
   %thead
     %tr
-      %th= link_to "Movie Title", {:controller => "movies", :action => "index", :sort => "title asc"}, :id => 'title_header', :class => @ctitle
+      %th= link_to "Movie Title", {:controller => "movies", :action => "index", :sort => "title asc"}, {:id => 'title_header', :class => @ctitle}
       %th Rating
       %th= link_to "Release Date", {:controller => "movies", :action => "index", :sort => "release_date asc"}, :id => 'release_date_header', :class => @crelease
       %th More Info
