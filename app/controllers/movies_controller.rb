@@ -8,21 +8,23 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
+	if param[:sort]
+		sort = params[:sort]
+		@movies = @movies.order(param[:sort])
+	end
   end
 
   def new
     # default: render 'new' template
   end
 
-  def sort
-	unless params[:sort].blank?
-		@movies = Movie.all
-		sort = params[:sort]
-		@movies = @movies.order(sort)
-	end
+#  def sort
+#	@movies = Movie.all
+#	sort = params[:sort]
+#	@movies = @movies.order(sort)
 #    flash[:notice] = "#{@movie.title} was successfully created."
-    redirect_to movies_path
-  end
+#   redirect_to movies_path
+#  end
   
   def create
     @movie = Movie.create!(params[:movie])
