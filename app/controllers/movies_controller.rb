@@ -8,6 +8,8 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
+	@focus = params[]
+	flash[:notice] = "#{@movie.title} was successfully created."
   end
 
   def new
@@ -15,7 +17,13 @@ class MoviesController < ApplicationController
   end
 
   def sort
-  
+	unless params[:sort].blank?
+		@movies = Movie.all
+		sort = params[:sort]
+		@movies = @movies.order(sort)
+	end
+#    flash[:notice] = "#{@movie.title} was successfully created."
+    redirect_to movies_path
   end
   
   def create
