@@ -11,10 +11,10 @@ class MoviesController < ApplicationController
 	if params[:sort]
 		sort = params[:sort]
 		@movies = Movie.order(sort)
-		if  "release_date asc" == sort then
-			@crelease = nil; @ctitle = "hilite"
-		elsif	"title asc" == sort then
+		if "release_date asc" == sort then
 			@crelease = "hilite"; @ctitle = nil
+		elsif "title asc" == sort then
+			@crelease = nil; @ctitle = "hilite"
 		end
 	end
   end
