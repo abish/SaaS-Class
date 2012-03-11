@@ -8,8 +8,6 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
-	@focus = params[]
-	flash[:notice] = "#{@movie.title} was successfully created."
   end
 
   def new
