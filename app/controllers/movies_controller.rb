@@ -8,9 +8,9 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
-	if param[:sort]
+	if params[:sort]
 		sort = params[:sort]
-		@movies = @movies.order(param[:sort])
+		@movies = @movies.order(params[:sort])
 	end
   end
 
