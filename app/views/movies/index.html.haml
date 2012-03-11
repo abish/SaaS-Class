@@ -4,7 +4,7 @@
 %table#movies
   %thead
     %tr
-      %th %a#title_header{:href =>　'/movies', :sort =>"title desc"} Movie Title
+      %th= link_to "Movie Title", movies_path, :sort => "title desc", :id => 'title_header'
       %th Rating
       %th Release Date
       %th More Info
